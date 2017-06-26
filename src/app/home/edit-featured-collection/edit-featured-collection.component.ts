@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FeaturedCollectionService } from "./featured-collection.service";
 
 @Component({
   selector: 'ds-edit-featured-collection',
@@ -6,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './edit-featured-collection.component.html'
 })
 export class EditFeaturedCollectionComponent implements OnInit {
-  collectionId = "5179";
+  collectionId: string;
 
-  constructor() {
+  constructor(private fcs: FeaturedCollectionService) {
     this.universalInit();
   }
 
@@ -17,9 +18,10 @@ export class EditFeaturedCollectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.collectionId = this.fcs.collectionId.getValue();
   }
 
   onUpdate(): void {
-    console.log(this.collectionId);
+    this.fcs.update(this.collectionId);
   }
 }

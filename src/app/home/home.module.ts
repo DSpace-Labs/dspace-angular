@@ -10,6 +10,7 @@ import { TranslateModule } from "@ngx-translate/core";
 import { SharedModule } from "../shared/shared.module";
 import { FeaturedCollectionComponent } from "./featured-collection/featured-collection.component";
 import { EditFeaturedCollectionComponent } from "./edit-featured-collection/edit-featured-collection.component";
+import { FeaturedCollectionService } from "./edit-featured-collection/featured-collection.service";
 
 @NgModule({
   imports: [
@@ -25,6 +26,9 @@ import { EditFeaturedCollectionComponent } from "./edit-featured-collection/edit
     HomeNewsComponent,
     FeaturedCollectionComponent,
     EditFeaturedCollectionComponent
+  ],
+  providers: [
+    FeaturedCollectionService
   ]
 })
 export class HomeModule { }
