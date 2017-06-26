@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Collection } from "../../core/shared/collection.model";
+import { RemoteData } from "../../core/data/remote-data";
+import { CollectionDataService } from "../../core/data/collection-data.service";
 
 @Component({
   selector: 'ds-featured-collection',
@@ -6,13 +9,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './featured-collection.component.html'
 })
 export class FeaturedCollectionComponent implements OnInit {
-  collection = {
-    id: "1",
-    name: "A collection of must-see papers",
-    shortDescription: "The most influential papers in this repository",
-  };
+  collectionId = "5179";
+  collection: RemoteData<Collection>;
 
-  constructor() {
+  constructor(private cds: CollectionDataService) {
     this.universalInit();
   }
 
@@ -21,6 +21,9 @@ export class FeaturedCollectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.collection = this.cds.findById(this.collectionId);
+    this.collection.isLoading.subscribe(s => console.log('isLoading', s));
+    this.collection.hasSucceeded.subscribe(s => console.log('hasSucceeded', s));
+    this.collection.hasFailed.subscribe(s => console.log('hasFailed', s));
   }
 }
