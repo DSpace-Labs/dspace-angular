@@ -66,6 +66,10 @@
     "featured-collection": {
       "head": "Featured Collection",
       "visit": "Visit!"
+    },
+    "edit-featured-collection": {
+      "head": "Edit Featured Collection",
+      "update": "Update"
     }
   }
 }
