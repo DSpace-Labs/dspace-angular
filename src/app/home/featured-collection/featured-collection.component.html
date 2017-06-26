@@ -2,10 +2,13 @@
 <div class="row">
   <div class="col-md-3">
     <div class="card">
-      <div class="card-block">
+      <div class="card-block" *ngIf="hasSucceeded">
         <h4 class="card-title">{{ collection.name }}</h4>
         <p class="card-text">{{ collection.shortDescription }}</p>
         <a [routerLink]="['/collections/' + collection.id]" class="btn btn-primary">{{ 'home.featured-collection.visit' | translate }}</a>
+      </div>
+      <div class="card-block" *ngIf="isLoading">
+        <p class="card-text">Loading...</p>gc
       </div>
     </div>
   </div>
