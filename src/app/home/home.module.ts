@@ -7,18 +7,22 @@ import { TopLevelCommunityListComponent } from "./top-level-community-list/top-l
 import { HomeNewsComponent } from "./home-news/home-news.component";
 import { RouterModule } from "@angular/router";
 import { TranslateModule } from "@ngx-translate/core";
+import { SharedModule } from "../shared/shared.module";
+import { FeaturedCollectionComponent } from "./featured-collection/featured-collection.component";
 
 @NgModule({
   imports: [
     CommonModule,
     HomeRoutingModule,
     RouterModule,
+    SharedModule,
     TranslateModule
   ],
   declarations: [
     HomeComponent,
     TopLevelCommunityListComponent,
-    HomeNewsComponent
+    HomeNewsComponent,
+    FeaturedCollectionComponent
   ]
 })
 export class HomeModule { }

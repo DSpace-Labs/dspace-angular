@@ -62,6 +62,10 @@
     "top-level-communities": {
       "head": "Communities in DSpace",
       "help": "Select a community to browse its collections."
+    } ,
+    "featured-collection": {
+      "head": "Featured Collection",
+      "visit": "Visit!"
     }
   }
 }

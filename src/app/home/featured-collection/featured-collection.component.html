@@ -1,0 +1,12 @@
+<h2>{{ 'home.featured-collection.head' | translate }}</h2>
+<div class="row">
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">{{ collection.name }}</h4>
+        <p class="card-text">{{ collection.shortDescription }}</p>
+        <a [routerLink]="['/collections/' + collection.id]" class="btn btn-primary">{{ 'home.featured-collection.visit' | translate }}</a>
+      </div>
+    </div>
+  </div>
+</div>
