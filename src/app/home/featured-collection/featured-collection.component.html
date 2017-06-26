@@ -2,12 +2,12 @@
 <div class="row">
   <div class="col-md-3">
     <div class="card">
-      <div class="card-block" *ngIf="hasSucceeded">
-        <h4 class="card-title">{{ collection.name }}</h4>
-        <p class="card-text">{{ collection.shortDescription }}</p>
-        <a [routerLink]="['/collections/' + collection.id]" class="btn btn-primary">{{ 'home.featured-collection.visit' | translate }}</a>
+      <div class="card-block" *ngIf="collection.hasSucceeded | async">
+        <h4 class="card-title">{{ (collection.payload | async)?.name }}</h4>
+        <p class="card-text">{{ (collection.payload | async)?.shortDescription }}</p>
+        <a [routerLink]="['/collections/' + (collection.payload | async)?.id]" class="btn btn-primary">{{ 'home.featured-collection.visit' | translate }}</a>
       </div>
-      <div class="card-block" *ngIf="isLoading">
+      <div class="card-block" *ngIf="collection.isLoading | async">
         <p class="card-text">Loading...</p>gc
       </div>
     </div>

@@ -11,8 +11,6 @@ import { CollectionDataService } from "../../core/data/collection-data.service";
 export class FeaturedCollectionComponent implements OnInit {
   collectionId = "5179";
   collection: RemoteData<Collection>;
-  isLoading: boolean;
-  hasSucceeded: boolean;
 
   constructor(private cds: CollectionDataService) {
     this.universalInit();
@@ -24,7 +22,5 @@ export class FeaturedCollectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.collection = this.cds.findById(this.collectionId);
-    this.collection.isLoading.subscribe(s => this.isLoading = s);
-    this.collection.hasSucceeded.subscribe(s => this.hasSucceeded = s);
   }
 }
