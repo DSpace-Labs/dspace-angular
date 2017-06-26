@@ -4,9 +4,9 @@
     <div class="card">
       <div class="card-block">
         <div class="card-text input-group">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" [(ngModel)]="collectionId">
           <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">{{ 'home.edit-featured-collection.update' | translate }}</button>
+              <button class="btn btn-secondary" type="button" (click)="onUpdate()">{{ 'home.edit-featured-collection.update' | translate }}</button>
             </span>
         </div>
       </div>

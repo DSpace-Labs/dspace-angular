@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './edit-featured-collection.component.html'
 })
 export class EditFeaturedCollectionComponent implements OnInit {
+  collectionId = "5179";
+
   constructor() {
     this.universalInit();
   }
@@ -15,5 +17,9 @@ export class EditFeaturedCollectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onUpdate(): void {
+    console.log(this.collectionId);
   }
 }
