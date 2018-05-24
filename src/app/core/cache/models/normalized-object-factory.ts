@@ -1,10 +1,11 @@
+import { GenericConstructor } from '../../shared/generic-constructor';
+import { ResourceType } from '../../shared/resource-type';
 import { NormalizedBitstream } from './normalized-bitstream.model';
 import { NormalizedBundle } from './normalized-bundle.model';
-import { NormalizedItem } from './normalized-item.model';
 import { NormalizedCollection } from './normalized-collection.model';
-import { GenericConstructor } from '../../shared/generic-constructor';
 import { NormalizedCommunity } from './normalized-community.model';
-import { ResourceType } from '../../shared/resource-type';
+import { NormalizedEPerson } from './normalized-eperson.model';
+import { NormalizedItem } from './normalized-item.model';
 import { NormalizedObject } from './normalized-object.model';
 
 export class NormalizedObjectFactory {
@@ -24,6 +25,9 @@ export class NormalizedObjectFactory {
       }
       case ResourceType.Community: {
         return NormalizedCommunity
+      }
+      case ResourceType.EPerson: {
+        return NormalizedEPerson
       }
       default: {
         return undefined;

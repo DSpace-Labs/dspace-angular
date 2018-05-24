@@ -19,6 +19,7 @@ import { CollectionDataService } from './data/collection-data.service';
 import { CommunityDataService } from './data/community-data.service';
 import { DebugResponseParsingService } from './data/debug-response-parsing.service';
 import { DSOResponseParsingService } from './data/dso-response-parsing.service';
+import { EPersonDataService } from './data/eperson-data.service';
 import { SearchResponseParsingService } from './data/search-response-parsing.service';
 import { DSpaceRESTv2Service } from './dspace-rest-v2/dspace-rest-v2.service';
 import { HostWindowService } from '../shared/host-window.service';
@@ -91,6 +92,7 @@ const PROVIDERS = [
   SubmissionSectionsConfigService,
   UUIDService,
   NotificationsService,
+  EPersonDataService,
   { provide: NativeWindowService, useFactory: NativeWindowFactory }
 ];
 
