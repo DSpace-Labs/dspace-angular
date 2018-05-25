@@ -40,36 +40,41 @@ export class EPersonDataService extends DataService<NormalizedEPerson, EPerson> 
 
   private _findMock(options: any = {}, matchFn?: (eperson: any) => boolean) {
     let matches;
+    let ePeople = [];
+
     if (hasValue(matchFn)) {
       matches = MOCK_EPERSON_DATA.filter(matchFn);
     } else {
       matches = MOCK_EPERSON_DATA;
     }
+
     if (isNotEmpty(matches)) {
       const serializer = new DSpaceRESTv2Serializer(NormalizedEPerson);
       const normalized = serializer.deserializeArray(matches);
 
-      const ePeople = normalized.map((norm: NormalizedEPerson) => Object.assign(new EPerson(), norm) as EPerson);
-      const elementsPerPage = isNotEmpty(options.elementsPerPage) ? options.elementsPerPage : 10;
-      const pageInfo = {
-        elementsPerPage,
-        totalElements: ePeople.length,
-        totalPages: Math.ceil(ePeople.length / elementsPerPage),
-        currentPage: isNotEmpty(options.currentPage) ? options.currentPage : 1
-      } as PageInfo;
-
-      const start = (pageInfo.currentPage - 1) * pageInfo.elementsPerPage;
-      const end = start + pageInfo.elementsPerPage;
-      const payload = new PaginatedList(pageInfo, ePeople.slice(start, end));
-
-      return Observable.of(new RemoteData(
-        false,
-        false,
-        true,
-        undefined,
-        payload
-      ));
+      ePeople = normalized.map((norm: NormalizedEPerson) => Object.assign(new EPerson(), norm) as EPerson);
     }
+
+    const elementsPerPage = isNotEmpty(options.elementsPerPage) ? options.elementsPerPage : 10;
+    const pageInfo = {
+      elementsPerPage,
+      totalElements: ePeople.length,
+      totalPages: Math.ceil(ePeople.length / elementsPerPage),
+      currentPage: isNotEmpty(options.currentPage) ? options.currentPage : 1
+    } as PageInfo;
+
+    const start = (pageInfo.currentPage - 1) * pageInfo.elementsPerPage;
+    const end = start + pageInfo.elementsPerPage;
+    const payload = new PaginatedList(pageInfo, ePeople.slice(start, end));
+
+    return Observable.of(new RemoteData(
+      false,
+      false,
+      true,
+      undefined,
+      payload
+    ));
+
   }
 
   findByName(name: string): Observable<RemoteData<PaginatedList<EPerson>>> {
