@@ -1,8 +1,6 @@
 <header>
   <nav class="navbar navbar-dark bg-primary navbar-expand-md">
-    <div [ngClass]="{'clearfix': !(isNavBarCollapsed | async)}">
-      <a class="navbar-brand" routerLink="/home">{{ 'title' | translate }}</a>
-    </div>
+    <a class="navbar-brand" routerLink="/home"><img src="assets/images/logo.svg"></a>
     <button class="navbar-toggler" type="button" (click)="toggle()" aria-controls="collapsingNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon fa fa-bars fa-fw" aria-hidden="true"></span>
     </button>
