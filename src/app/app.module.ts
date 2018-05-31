@@ -26,6 +26,7 @@ import { CoreModule } from './core/core.module';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
+import { MockAdminGuard } from './shared/mocks/mock-admin-guard.service';
 
 import { DSpaceRouterStateSerializer } from './shared/ngrx/dspace-router-state-serializer';
 import { NotificationsBoardComponent } from './shared/notifications/notifications-board/notifications-board.component';
@@ -80,7 +81,8 @@ if (!ENV_CONFIG.production) {
     {
       provide: RouterStateSerializer,
       useClass: DSpaceRouterStateSerializer
-    }
+    },
+    MockAdminGuard
   ],
   declarations: [
     AppComponent,

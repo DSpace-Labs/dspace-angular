@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
+import { MockAdminGuard } from './shared/mocks/mock-admin-guard.service';
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
       { path: 'collections', loadChildren: './+collection-page/collection-page.module#CollectionPageModule' },
       { path: 'items', loadChildren: './+item-page/item-page.module#ItemPageModule' },
       { path: 'search', loadChildren: './+search-page/search-page.module#SearchPageModule' },
-      { path: 'admin', loadChildren: './+admin/admin.module#AdminModule' },
+      { path: 'admin', loadChildren: './+admin/admin.module#AdminModule', canActivate: [MockAdminGuard] },
       { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
     ])
   ],
