@@ -4,5 +4,7 @@ export const ROUTES: string[] = [
   'collections/:id',
   'communities/:id',
   'search',
+  'admin',
+  'admin/users',
   '**'
 ];
