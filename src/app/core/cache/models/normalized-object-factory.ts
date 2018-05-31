@@ -1,12 +1,14 @@
-import { GenericConstructor } from '../../shared/generic-constructor';
-import { ResourceType } from '../../shared/resource-type';
 import { NormalizedBitstream } from './normalized-bitstream.model';
 import { NormalizedBundle } from './normalized-bundle.model';
-import { NormalizedCollection } from './normalized-collection.model';
-import { NormalizedCommunity } from './normalized-community.model';
-import { NormalizedEPerson } from './normalized-eperson.model';
 import { NormalizedItem } from './normalized-item.model';
+import { NormalizedCollection } from './normalized-collection.model';
+import { GenericConstructor } from '../../shared/generic-constructor';
+import { NormalizedCommunity } from './normalized-community.model';
+import { ResourceType } from '../../shared/resource-type';
 import { NormalizedObject } from './normalized-object.model';
+import { NormalizedEPerson } from './normalized-eperson.model';
+import { NormalizedBitstreamFormat } from './normalized-bitstream-format.model';
+import { NormalizedResourcePolicy } from './normalized-resource-policy.model';
 
 export class NormalizedObjectFactory {
   public static getConstructor(type: ResourceType): GenericConstructor<NormalizedObject> {
@@ -28,6 +30,12 @@ export class NormalizedObjectFactory {
       }
       case ResourceType.EPerson: {
         return NormalizedEPerson
+      }
+      case ResourceType.BitstreamFormat: {
+        return NormalizedBitstreamFormat
+      }
+      case ResourceType.ResourcePolicy: {
+        return NormalizedResourcePolicy
       }
       default: {
         return undefined;

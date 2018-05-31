@@ -7,4 +7,5 @@ export enum ResourceType {
   Collection = 'collection',
   Community = 'community',
   EPerson = 'eperson',
+  ResourcePolicy = 'resourcePolicy'
 }
