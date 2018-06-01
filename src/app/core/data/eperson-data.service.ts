@@ -34,7 +34,6 @@ export class EPersonDataService extends DataService<NormalizedEPerson, EPerson> 
     return this.halService.getEndpoint(this.linkPath);
   }
 
-
   findAll(options: FindAllOptions = {}): Observable<RemoteData<PaginatedList<EPerson>>> {
     return this._findMock(options);
   }
@@ -43,10 +42,12 @@ export class EPersonDataService extends DataService<NormalizedEPerson, EPerson> 
     let matches;
     let ePeople = [];
 
+    const clone = JSON.parse(JSON.stringify(MOCK_EPERSON_DATA));
+
     if (hasValue(matchFn)) {
-      matches = MOCK_EPERSON_DATA.filter(matchFn);
+      matches = clone.filter(matchFn);
     } else {
-      matches = MOCK_EPERSON_DATA;
+      matches = clone;
     }
 
     if (isNotEmpty(matches)) {
@@ -68,7 +69,7 @@ export class EPersonDataService extends DataService<NormalizedEPerson, EPerson> 
     const end = start + pageInfo.elementsPerPage;
     const payload = new PaginatedList(pageInfo, ePeople.slice(start, end));
 
-    const interval = Observable.interval(500).pipe(take(3));
+    const interval = Observable.interval(100).pipe(take(3));
 
     const data = Observable.from([
       new RemoteData(
@@ -99,7 +100,7 @@ export class EPersonDataService extends DataService<NormalizedEPerson, EPerson> 
 
   findByName(name: string): Observable<RemoteData<PaginatedList<EPerson>>> {
     const options = { query: name.toLowerCase() };
-    const matchFn = (eperson: any) => eperson.firstName.toLowerCase().includes(options.query);
+    const matchFn = (eperson: any) => eperson.lastName.toLowerCase().includes(options.query);
     return this._findMock(options, matchFn)
   }
 }

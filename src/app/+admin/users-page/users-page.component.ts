@@ -5,6 +5,7 @@ import { PaginatedList } from '../../core/data/paginated-list';
 import { RemoteData } from '../../core/data/remote-data';
 import { EPerson } from '../../core/shared/eperson.model';
 import { fadeInOut } from '../../shared/animations/fade';
+import { isNotEmpty } from '../../shared/empty.util';
 
 @Component({
   selector: 'ds-users-page',
@@ -21,6 +22,14 @@ export class UsersPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.users$ = this.epds.findAll();
+  }
+
+  onSubmit(value: string) {
+    if (isNotEmpty(value)) {
+      this.users$ = this.epds.findByName(value);
+    } else {
+      this.users$ = this.epds.findAll();
+    }
   }
 
 }

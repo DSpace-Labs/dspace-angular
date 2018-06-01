@@ -1,10 +1,10 @@
 <div class="container">
   <h1>{{ 'admin.users.head' | translate }}</h1>
 
-  <form class="row">
+  <form class="row" (ngSubmit)="onSubmit(searchField.value)">
     <div class="col-sm-6">
       <div class="form-group input-group">
-        <input type="text" name="query" class="form-control" aria-label="Search input">
+        <input type="text" #searchField name="query" class="form-control" aria-label="Search input">
         <span class="input-group-append">
                 <button type="submit" class="search-button btn btn-secondary">{{ ('admin.users.search' | translate) }}</button>
             </span>
