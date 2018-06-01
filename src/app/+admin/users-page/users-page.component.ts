@@ -15,6 +15,7 @@ import { isNotEmpty } from '../../shared/empty.util';
 })
 export class UsersPageComponent implements OnInit {
   users$: Observable<RemoteData<PaginatedList<EPerson>>>;
+  query: string;
 
   constructor(private epds: EPersonDataService) {
 
@@ -27,6 +28,14 @@ export class UsersPageComponent implements OnInit {
   onSubmit(value: string) {
     if (isNotEmpty(value)) {
       this.users$ = this.epds.findByName(value);
+    } else {
+      this.users$ = this.epds.findAll();
+    }
+  }
+
+  onKey() {
+    if (isNotEmpty(this.query)) {
+      this.users$ = this.epds.findByName(this.query);
     } else {
       this.users$ = this.epds.findAll();
     }

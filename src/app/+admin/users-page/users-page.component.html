@@ -4,7 +4,7 @@
   <form class="row" (ngSubmit)="onSubmit(searchField.value)">
     <div class="col-sm-6">
       <div class="form-group input-group">
-        <input type="text" #searchField name="query" class="form-control" aria-label="Search input">
+        <input type="text" #searchField [(ngModel)]="query" name="query" (keyup)="onKey()" class="form-control" aria-label="Search input">
         <span class="input-group-append">
                 <button type="submit" class="search-button btn btn-secondary">{{ ('admin.users.search' | translate) }}</button>
             </span>
