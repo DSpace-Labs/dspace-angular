@@ -1,20 +1,11 @@
 <div class="container">
-
-  <h1>{{ 'admin.users.head' | translate }}</h1>
-
-  <ul class="list-unstyled">
-    <li class="mb-3">
-      <div class="lead">User name</div>
-      <div class="text-muted">user@email.com</div>
-    </li>
-    <li class="mb-3">
-      <div class="lead">User name</div>
-      <div class="text-muted">user@email.com</div>
-    </li>
-    <li class="mb-3">
-      <div class="lead">User name</div>
-      <div class="text-muted">user@email.com</div>
-    </li>
-  </ul>
-
+    <h1>{{ 'admin.users.head' | translate }}</h1>
+    <ng-container *ngVar="(users$ | async) as usersRD">
+      <ul class="list-unstyled">
+        <li class="mb-3" *ngFor="let user of usersRD?.payload?.page">
+          <div class="lead">{{user.lastName}}, {{user.firstName}}</div>
+          <div class="text-muted">{{user.email}}</div>
+        </li>
+      </ul>
+    </ng-container>
 </div>

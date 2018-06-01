@@ -1,5 +1,6 @@
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+import { take } from 'rxjs/operators';
 import { hasValue, isNotEmpty } from '../../shared/empty.util';
 import { MOCK_EPERSON_DATA } from '../../shared/mocks/mock-eperson-data';
 import { RemoteDataBuildService } from '../cache/builders/remote-data-build.service';
@@ -67,14 +68,33 @@ export class EPersonDataService extends DataService<NormalizedEPerson, EPerson> 
     const end = start + pageInfo.elementsPerPage;
     const payload = new PaginatedList(pageInfo, ePeople.slice(start, end));
 
-    return Observable.of(new RemoteData(
-      false,
-      false,
-      true,
-      undefined,
-      payload
-    ));
+    const interval = Observable.interval(500).pipe(take(3));
 
+    const data = Observable.from([
+      new RemoteData(
+        true,
+        false,
+        undefined,
+        undefined,
+        undefined
+      ),
+      new RemoteData(
+        false,
+        true,
+        undefined,
+        undefined,
+        undefined
+      ),
+      new RemoteData(
+        false,
+        false,
+        true,
+        undefined,
+        payload
+      ),
+    ]);
+
+    return Observable.zip(interval, data, (time, rd) => rd);
   }
 
   findByName(name: string): Observable<RemoteData<PaginatedList<EPerson>>> {
