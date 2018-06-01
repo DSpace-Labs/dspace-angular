@@ -133,6 +133,11 @@
       }
     }
   },
+  "admin": {
+    "users": {
+      "head": "List Users"
+    }
+  },
   "loading": {
     "default": "Loading...",
     "top-level-communities": "Loading top level communities...",
