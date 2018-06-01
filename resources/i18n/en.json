@@ -135,7 +135,8 @@
   },
   "admin": {
     "users": {
-      "head": "List Users"
+      "head": "List Users",
+      "search": "Search"
     }
   },
   "loading": {
