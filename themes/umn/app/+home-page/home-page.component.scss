@@ -1,0 +1,9 @@
+:host {
+}
+
+div.background-image {
+    position: relative;
+    background-position-y: -200px;
+    background-image: url('/assets/images/city_banner.jpg');
+    background-size: cover;
+}
