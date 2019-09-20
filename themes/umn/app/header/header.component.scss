@@ -1,0 +1,66 @@
+.navbar-brand img {
+    height: $header-logo-height;
+    @media screen and (max-width: map-get($grid-breakpoints, sm)) {
+        height: $header-logo-height-xs;
+    }
+}
+.navbar-toggler .navbar-toggler-icon {
+    background-image: none !important;
+    line-height: 1.5;
+}
+
+
+.navbar ::ng-deep {
+  a {
+    color: $header-icon-color;
+
+    &:hover, &focus {
+      color: darken($header-icon-color, 15%);
+    }
+  }
+}
+
+// Change header background to use gradient from https://conservancy.umn.edu/
+header {
+    background-image: linear-gradient(to bottom, #7a0019 0%, #47000f 100%);
+}
+
+// Header text styling
+// This CSS was copied/borrowed from https://conservancy.umn.edu/
+// Minor tweaks to font-size, etc were made to make it look better in DSpace
+#blockm {
+    bottom: 40px;
+    height: 80px;
+    width: 80px;
+    margin-right: 10px;
+}
+#branding {
+    display: inline-block;
+    position: relative;
+    top: 14px;
+    left: 8px;
+    font-size: 3em;
+}
+#libraries {
+    margin: 0 auto;
+    font-size: 16pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+#libraries a, #libraries a:hover {
+    color: #ffcc33;
+    text-decoration: none;
+}
+#application {
+    margin: 0 auto;
+    border: none;
+    font-size: 20pt;
+    font-weight: normal;
+    letter-spacing: 0;
+    text-decoration: none;
+    text-transform: none;
+}
+#application a, #application a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}

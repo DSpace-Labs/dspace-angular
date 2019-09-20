@@ -1,8 +1,14 @@
 <header>
     <div class="container">
-        <a class="navbar-brand my-2" routerLink="/home">
-            <img src="assets/images/blockm.svg"/>
-        </a>
+        <div class="navbar-brand">
+            <a class="my-2" routerLink="/home">
+                <img src="assets/images/blockm.svg" id="blockm"/>
+            </a>
+            <div id="branding">
+                <h2 id="libraries"><a href="/">Libraries</a></h2>
+                <h1 id="application"><a href="/">digital conservancy</a></h1>
+            </div>
+        </div>
 
         <nav class="navbar navbar-light navbar-expand-md float-right px-0">
             <a routerLink="/search" class="px-1"><i class="fas fa-search fa-lg fa-fw" [title]="'nav.search' | translate"></i></a>
