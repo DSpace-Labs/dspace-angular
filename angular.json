@@ -58,6 +58,11 @@
                 "bundleName": "custom-theme"
               },
               {
+                "input": "src/themes/or-workshop/styles/theme.scss",
+                "inject": false,
+                "bundleName": "or-workshop-theme"
+              },
+              {
                 "input": "src/themes/dspace/styles/theme.scss",
                 "inject": false,
                 "bundleName": "dspace-theme"
