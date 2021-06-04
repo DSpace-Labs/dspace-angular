@@ -4,5 +4,10 @@
   min-height: 350px;
   margin-top: calc(-1 * var(--ds-content-spacing));
   margin-bottom: var(--ds-content-spacing);
+
+  .overlay {
+    background: rgba(0,0,0,0.5);
+    border-radius: $border-radius;
+  }
 }
 
