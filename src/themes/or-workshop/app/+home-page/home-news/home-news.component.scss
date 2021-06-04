@@ -1,0 +1,8 @@
+.banner {
+  background-image: url('/assets/or-workshop/images/banner.jpg');
+  background-size: cover;
+  min-height: 350px;
+  margin-top: calc(-1 * var(--ds-content-spacing));
+  margin-bottom: var(--ds-content-spacing);
+}
+
