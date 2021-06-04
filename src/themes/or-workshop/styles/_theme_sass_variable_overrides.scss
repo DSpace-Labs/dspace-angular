@@ -12,15 +12,15 @@ $gray-700: lighten($gray-base, 46.6%) !default; // #777
 $gray-600: lighten($gray-base, 73.3%) !default; // #bbb
 $gray-100: lighten($gray-base, 93.5%) !default; // #eee
 
-$blue: #2B4E72 !default;
+$blue: #14213D !default;
 $green: #94BA65 !default;
-$cyan: #006666 !default;
-$yellow: #ec9433 !default;
+$cyan: #1B95E0 !default;
+$yellow: #FCA311 !default;
 $red: #CF4444 !default;
 $dark: darken($blue, 17%) !default;
 
 $theme-colors: (
-  primary: $blue,
+  primary: $yellow,
   secondary: $gray-700,
   success: $green,
   info: $cyan,
